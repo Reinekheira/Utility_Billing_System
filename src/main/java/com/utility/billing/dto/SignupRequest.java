@@ -2,6 +2,7 @@ package com.utility.billing.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 
@@ -21,6 +22,7 @@ public class SignupRequest {
     @Email(message = "Invalid email format")
     private String email;
 
+    @Pattern(regexp = "^(\\+250|0)?7\\d{8}$", message = "Phone number must be a valid Rwandan number (e.g. +25078xxxxxxx or 078xxxxxxx)")
     private String phoneNumber;
 
     @NotBlank(message = "Password is required")
